@@ -3,6 +3,7 @@ package com.example.WebCustomerTracker;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.hibernate.SessionFactory;
+import org.hibernate.internal.SessionFactoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +37,7 @@ public class Config {
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         comboPooledDataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-        comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC");
+        comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/web_customer_tracker");
         comboPooledDataSource.setUser("root");
         comboPooledDataSource.setPassword("123456");
         comboPooledDataSource.setMinPoolSize(5);
@@ -61,11 +62,12 @@ public class Config {
 
 
 
+
     @Bean
     public HibernateTransactionManager hibernateTransactionManager() throws PropertyVetoException {
         HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
+        hibernateTransactionManager.setSessionFactory(sessionFactoryBean().getObject());
 
-        hibernateTransactionManager.setSessionFactory((SessionFactory) sessionFactoryBean());
         return hibernateTransactionManager;
     }
 
