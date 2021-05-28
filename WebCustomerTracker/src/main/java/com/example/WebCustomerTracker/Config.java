@@ -51,7 +51,7 @@ public class Config {
     public LocalSessionFactoryBean sessionFactoryBean() throws PropertyVetoException {
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource(dataSource());
-//        localSessionFactoryBean.setPackagesToScan(com.example.WebCustomerTracker);
+        localSessionFactoryBean.setPackagesToScan("com.example.WebCustomerTracker.entity");
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
