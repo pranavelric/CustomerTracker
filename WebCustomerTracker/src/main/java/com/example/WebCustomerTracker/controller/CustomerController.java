@@ -69,5 +69,17 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
+    @GetMapping("/search")
+    public  ModelAndView searchCustomer(@RequestParam("theSearchName") String searchName,Model model){
+        List<Customer> theCustomers = customerService.searchCustomers(searchName);
+
+        // add the customers to the model
+        ModelAndView modelAndView = new ModelAndView("list-customers","command",theCustomers);
+        modelAndView.addObject("customer",theCustomers);
+        model.addAttribute("customers", theCustomers);
+        return  modelAndView;
+
+    }
+
 
 }

@@ -50,5 +50,31 @@ public class CustomerDaoImpl implements CustomerDao {
         query.executeUpdate();
     }
 
+    @Override
+    public List<Customer> earchCustomers(String theSearchName) {
+        Session currentSession = localSessionFactoryBean.getObject().getCurrentSession();
+
+
+        Query<Customer> theQuery = null;
+
+        if (theSearchName != null && theSearchName.trim().length() > 0) {
+            // search for firstName or lastName ... case insensitive
+            theQuery =currentSession.createQuery("SELECT c from Customer c where lower(c.firstName) like :theName or lower(c.lastName) like :theName", Customer.class);
+            theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
+        }
+        else {
+            // theSearchName is empty ... so just get all customers
+            theQuery =currentSession.createQuery("select c from Customer c", Customer.class);
+
+        }
+
+        // execute query and get result list
+        List<Customer> customers = theQuery.getResultList();
+
+
+        // return the results
+        return customers;
+    }
+
 
 }

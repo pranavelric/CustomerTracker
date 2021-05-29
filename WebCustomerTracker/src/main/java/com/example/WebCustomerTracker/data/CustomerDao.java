@@ -13,4 +13,6 @@ public interface CustomerDao {
     Customer getCustomer(int id);
 
     public void deleteCustomer(int id);
+
+    public List<Customer> earchCustomers(String searchName);
 }

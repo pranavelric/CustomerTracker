@@ -442,6 +442,7 @@ footer a:hover{
     text-align: center;
     padding: 10rem 5rem 10rem 5rem;
     position: relative;
+
 }
 .btn:focus{
     outline: none;
@@ -499,3 +500,54 @@ footer a:hover{
 
 
 /*modal end*/
+
+/*search form */
+.search
+{
+    border: 0.2rem solid #f1c11a;
+    overflow: auto;
+    margin: 3rem auto;
+    border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    width: 50%;
+}
+
+.search-form{
+    display: flex;
+}
+
+
+.search input[type="text"] {
+    border: 0px;
+    /*width: 67%;*/
+  flex: 100%;
+padding: 1rem 1rem;
+}
+
+
+.search input[type="text"]:focus
+{
+    outline: 0;
+}
+
+
+.search input[type="submit"]
+{
+    border: 0px;
+    background: none;
+    background-color: #f1c11a;
+    color: #fff;
+    float: right;
+    padding: 10px;
+    flex: 12%;
+    border-radius-top-right: 5px;
+    -moz-border-radius-top-right: 5px;
+    -webkit-border-radius-top-right: 5px;
+    border-radius-bottom-right: 5px;
+    -moz-border-radius-bottom-right: 5px;
+    -webkit-border-radius-bottom-right: 5px;
+    cursor:pointer;
+}
+
+

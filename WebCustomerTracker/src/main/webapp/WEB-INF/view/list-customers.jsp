@@ -65,6 +65,18 @@
                        class="btn btn-lg btn-success smoothScroll wow animate__animated animate__fadeInUp"
                        data-wow-delay="1.0s">Add Customer!</a>
 
+
+                    <div class="search">
+
+                        <form:form action="search" method="GET" cssClass="search-form">
+                         <input type="text" name="theSearchName" placeholder="Search for Customers" />
+                            <input type="submit" value="Search" class="add-button" />
+                        </form:form>
+
+                    </div>
+
+
+
                 </div>
 
             </div>
