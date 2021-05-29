@@ -42,5 +42,13 @@ public class CustomerDaoImpl implements CustomerDao {
         return customer;
     }
 
+    @Override
+    public void deleteCustomer(int id) {
+        Session currentSession = localSessionFactoryBean.getObject().getCurrentSession();
+        Query query = currentSession.createQuery("Delete from  Customer  where  id=:id");
+        query.setParameter("id", id);
+        query.executeUpdate();
+    }
+
 
 }

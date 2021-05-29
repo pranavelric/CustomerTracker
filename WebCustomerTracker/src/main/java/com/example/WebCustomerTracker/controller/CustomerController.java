@@ -59,11 +59,14 @@ public class CustomerController {
         Customer customer = customerService.getCustomer(id);
         ModelAndView modelAndView = new ModelAndView("update-customers","command",customer);
         modelAndView.addObject("customer",customer);
-
-
         return modelAndView;
+    }
 
+    @GetMapping("/deleteCustomer")
+    public String deleteCustomer(@RequestParam("customerId")int id){
 
+        customerService.deleteCustomer(id);
+        return "redirect:/customer/list";
     }
 
 

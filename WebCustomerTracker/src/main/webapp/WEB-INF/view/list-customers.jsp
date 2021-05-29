@@ -57,11 +57,13 @@
 
                 <div class="home-thumb">
 
-                    <h1 class="wow animate__animated animate__fadeInUp"  data-wow-delay="0.4s">CRM</h1>
-                    <h3 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">We are almost <strong>ready to launch</strong> our
+                    <h1 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">CRM</h1>
+                    <h3 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">We are almost <strong>ready
+                        to launch</strong> our
                         <strong>new creative</strong> website!</h3>
-                    <a href="#"  data-bs-toggle="modal" data-bs-target ="#modal1"
-                       class="btn btn-lg btn-success smoothScroll wow animate__animated animate__fadeInUp" data-wow-delay="1.0s">Add Customer!</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal1"
+                       class="btn btn-lg btn-success smoothScroll wow animate__animated animate__fadeInUp"
+                       data-wow-delay="1.0s">Add Customer!</a>
 
                 </div>
 
@@ -82,7 +84,7 @@
         <div class="row">
             <div>
                 <div class="customer_table wow animate__animated animate__fadeInUp" data-wow-delay="1.0s">
-                  <div class="header">Customers</div>
+                    <div class="header">Customers</div>
                     <table cellspacing="0">
                         <tr>
                             <th>id</th>
@@ -103,12 +105,16 @@
                                 <td>
                                     <div>
 
-                                        <c:url value="/customer/updateCustomer" var="updateLink" >
+                                        <c:url value="/customer/updateCustomer" var="updateLink">
+                                            <c:param name="customerId" value="${tempCustomer.id}"/>
+                                        </c:url>
+                                        <c:url value="/customer/deleteCustomer" var="deleteLink">
                                             <c:param name="customerId" value="${tempCustomer.id}"/>
                                         </c:url>
 
                                         <a href="${updateLink}" class="btn btn-warning">Update</a>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <a href="${deleteLink}" onclick="if(!(confirm('Are you sure you want to delete this customer?'))) return false"  class="btn btn-danger">Delete</a>
+
                                     </div>
                                 </td>
 
@@ -163,10 +169,14 @@
                     San Francisco, CA, USA
                 </p>
                 <ul class="social-icon">
-                    <li><a href="#" class="fas fa-globe wow  animate__animated animate__bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="#" class="fab fa-instagram wow  animate__animated animate__bounceIn" data-wow-delay="1.2s"></a></li>
-                    <li><a href="#" class="fab fa-github wow  animate__animated animate__bounceIn" data-wow-delay="1.4s"></a></li>
-                    <li><a href="#" class="fab fa-stack-overflow wow  animate__animated animate__bounceIn" data-wow-delay="1.6s"></a></li>
+                    <li><a href="#" class="fas fa-globe wow  animate__animated animate__bounceIn"
+                           data-wow-delay="0.9s"></a></li>
+                    <li><a href="#" class="fab fa-instagram wow  animate__animated animate__bounceIn"
+                           data-wow-delay="1.2s"></a></li>
+                    <li><a href="#" class="fab fa-github wow  animate__animated animate__bounceIn"
+                           data-wow-delay="1.4s"></a></li>
+                    <li><a href="#" class="fab fa-stack-overflow wow  animate__animated animate__bounceIn"
+                           data-wow-delay="1.6s"></a></li>
                 </ul>
             </div>
 
@@ -188,18 +198,15 @@
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <div class="modal-header">
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h2 class="modal-title">Add new Customer</h2>
             </div>
-            <form:form action="saveCustomer" method="post" modelAttribule="customer" >
-<%--                <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name">--%>
-<%--                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name">--%>
-<%--                <input name="email" type="text" class="form-control" id="email" placeholder="Email Address">--%>
-<%--                <input name="submit" type="submit" class="form-control" id="submit" value="Subscribe Now">--%>
-<%--         --%>
+            <form:form action="saveCustomer" method="post" modelAttribule="customer">
 
-                <form:input path="firstName" placeholder="First Name" cssClass="form-control" />
-                <form:input path="lastName" placeholder="Last Name"  cssClass="form-control"/>
+
+                <form:input path="firstName" placeholder="First Name" cssClass="form-control"/>
+                <form:input path="lastName" placeholder="Last Name" cssClass="form-control"/>
                 <form:input path="email" placeholder="Email" cssClass="form-control"/>
                 <input name="submit" type="submit" class="form-control" id="submit" value="save">
 
@@ -209,7 +216,6 @@
         </div>
     </div>
 </div>
-
 
 
 <%--customer form end--%>
@@ -241,8 +247,6 @@
         integrity="sha512-GNPL2Xds/NxEEdhgKxQUjzCgkCmWvJdIOSWd+8+kO8mxe/sFNyRA1jkA8ZO9l9fc2QWF5gPy1cgEdOfjo8fZZA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="<c:url value="/resources/js/main.js" /> "></script>
-
-
 
 
 </body>
