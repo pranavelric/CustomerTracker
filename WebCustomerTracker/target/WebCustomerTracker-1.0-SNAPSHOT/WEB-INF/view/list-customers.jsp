@@ -177,11 +177,12 @@
     <div class="modal-dialog">
         <div class="modal-content modal-popup">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h2 class="modal-title">Our Newsletter</h2>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title">Add new Customer</h2>
             </div>
             <form action="#" method="post">
-                <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Full Name">
+                <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name">
+                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name">
                 <input name="email" type="text" class="form-control" id="email" placeholder="Email Address">
                 <input name="submit" type="submit" class="form-control" id="submit" value="Subscribe Now">
             </form>
