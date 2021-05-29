@@ -2,25 +2,29 @@ package com.example.WebCustomerTracker;
 
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.hibernate.SessionFactory;
-import org.hibernate.internal.SessionFactoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.CacheControl;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.beans.PropertyVetoException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
+
 @ComponentScan({"com.example.WebCustomerTracker"})
-public class Config {
+public class Config implements WebMvcConfigurer {
+
 
     @Bean
     public InternalResourceViewResolver viewResolver() {
@@ -61,8 +65,6 @@ public class Config {
     }
 
 
-
-
     @Bean
     public HibernateTransactionManager hibernateTransactionManager() throws PropertyVetoException {
         HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
@@ -70,6 +72,17 @@ public class Config {
 
         return hibernateTransactionManager;
     }
+
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        WebMvcConfigurer.super.addResourceHandlers(registry);
+        /*Add css file resource url here*/
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/")
+                .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
+
+    }
+
 
 
 
