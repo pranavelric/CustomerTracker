@@ -273,8 +273,9 @@ strong {
 
 }
 
+
 #home .btn:hover {
-    background: #ffffff;
+    background: #f1c11a;
     color: #242424;
     border-color: transparent;
 }
