@@ -100,7 +100,17 @@
                                 <td>${tempCustomer.firstName}</td>
                                 <td>${tempCustomer.lastName}</td>
                                 <td>${tempCustomer.email}</td>
-                                <td>${tempCustomer.email}</td>
+                                <td>
+                                    <div>
+
+                                        <c:url value="/customer/updateCustomer" var="updateLink" >
+                                            <c:param name="customerId" value="${tempCustomer.id}"/>
+                                        </c:url>
+
+                                        <a href="${updateLink}" class="btn btn-warning">Update</a>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </td>
 
                             </tr>
 

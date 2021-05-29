@@ -1,16 +1,11 @@
 package com.example.WebCustomerTracker.controller;
 
-import com.example.WebCustomerTracker.data.CustomerDao;
-import com.example.WebCustomerTracker.data.CustomerDaoImpl;
 import com.example.WebCustomerTracker.entity.Customer;
 import com.example.WebCustomerTracker.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -19,8 +14,7 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-//    @Autowired
-//    private CustomerDao customerDao;
+
 
     @Autowired
     private CustomerService customerService;
@@ -32,43 +26,21 @@ public class CustomerController {
         // get Cutomers
         List<Customer> customers = customerService.getCustomers();
         //add Customers
-//        model.addAttribute("customers", customers);
-
+        // model.addAttribute("customers", customers);
         modelAndView.addObject("customers",customers);
 
         // Customer for form
         Customer customer = new Customer();
-//        model.addAttribute("customerr", customer);
+        // model.addAttribute("customerr", customer);
 
         modelAndView.addObject("customer",customer);
 
-//        return "list-customers";
+
         return modelAndView;
     }
 
 
 
-    /*
-
-        @RequestMapping("/list")
-    public String listCustomer(Model model) {
-
-        // get Cutomers
-        List<Customer> customers = customerService.getCustomers();
-        //add Customers
-        model.addAttribute("customers", customers);
-
-
-        // Customer for form
-        Customer customer = new Customer();
-        model.addAttribute("customer", customer);
-
-
-        return "list-customers";
-    }
-
-
-     */
 
 
     @PostMapping("/saveCustomer")
@@ -79,6 +51,20 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
+
+    @GetMapping("/updateCustomer")
+    public  ModelAndView  updateCustomer(@RequestParam("customerId") int id,  Model model){
+
+
+        Customer customer = customerService.getCustomer(id);
+        ModelAndView modelAndView = new ModelAndView("update-customers","command",customer);
+        modelAndView.addObject("customer",customer);
+
+
+        return modelAndView;
+
+
+    }
 
 
 }

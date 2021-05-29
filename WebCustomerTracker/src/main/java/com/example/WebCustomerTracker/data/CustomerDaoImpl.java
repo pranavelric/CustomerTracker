@@ -30,8 +30,16 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public void saveCustomer(Customer customer) {
         Session currentSession = localSessionFactoryBean.getObject().getCurrentSession();
-        currentSession.save(customer);
+        currentSession.saveOrUpdate(customer);
 
+    }
+
+    @Override
+    public Customer getCustomer(int id) {
+        Session currentSession = localSessionFactoryBean.getObject().getCurrentSession();
+        Customer customer = currentSession.get(Customer.class, id);
+
+        return customer;
     }
 
 
