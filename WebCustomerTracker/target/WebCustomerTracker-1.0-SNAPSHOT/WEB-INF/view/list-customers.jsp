@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -180,12 +181,20 @@
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h2 class="modal-title">Add new Customer</h2>
             </div>
-            <form action="#" method="post">
-                <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name">
-                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name">
-                <input name="email" type="text" class="form-control" id="email" placeholder="Email Address">
-                <input name="submit" type="submit" class="form-control" id="submit" value="Subscribe Now">
-            </form>
+            <form:form action="saveCustomer" method="post" modelAttribule="customer" >
+<%--                <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name">--%>
+<%--                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name">--%>
+<%--                <input name="email" type="text" class="form-control" id="email" placeholder="Email Address">--%>
+<%--                <input name="submit" type="submit" class="form-control" id="submit" value="Subscribe Now">--%>
+<%--         --%>
+
+                <form:input path="firstName" placeholder="First Name" cssClass="form-control" />
+                <form:input path="lastName" placeholder="Last Name"  cssClass="form-control"/>
+                <form:input path="email" placeholder="Email" cssClass="form-control"/>
+                <input name="submit" type="submit" class="form-control" id="submit" value="save">
+
+
+            </form:form>
             <p>Thank you for your visiting!</p>
         </div>
     </div>

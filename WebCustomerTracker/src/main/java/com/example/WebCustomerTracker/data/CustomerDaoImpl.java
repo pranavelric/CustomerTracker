@@ -6,7 +6,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,6 +25,13 @@ public class CustomerDaoImpl implements CustomerDao {
         List<Customer> customers = theQuery.getResultList();
 
         return customers;
+    }
+
+    @Override
+    public void saveCustomer(Customer customer) {
+        Session currentSession = localSessionFactoryBean.getObject().getCurrentSession();
+        currentSession.save(customer);
+
     }
 
 
