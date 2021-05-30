@@ -57,10 +57,11 @@
 
                 <div class="home-thumb">
 
-                    <h1 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">CRM</h1>
-                    <h3 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">We are almost <strong>ready
-                        to launch</strong> our
-                        <strong>new creative</strong> website!</h3>
+                    <h1 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Customer-Relationship-Manager</h1>
+                    <h3 class="wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">The core technology used is
+                        <strong>Spring MVC</strong> and<strong> Hibernate
+                        </strong>.
+                        </h3>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modal1"
                        class="btn btn-lg btn-success smoothScroll wow animate__animated animate__fadeInUp"
                        data-wow-delay="1.0s">Add Customer!</a>
@@ -162,11 +163,10 @@
 
 
             <div class="col-md-4 col-sm-6">
-                <h2>comila</h2>
+                <h2>CRM</h2>
                 <div class="wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus lacus nulla, eget varius
-                        justo tristique ut. Etiam a tellus magna.</p>
-                    <p class="copyright-text">Copyright &copy; 2016 Your Company <br>
+                    <p>A full CRUD application, Customer Relationship Manager system that allows to track customers</p>
+                    <p class="copyright-text">Copyright &copy; 2021 CRM <br>
 
                 </div>
             </div>
@@ -174,20 +174,19 @@
             <div class="col-md-1 col-sm-1"></div>
 
             <div class="col-md-4 col-sm-5">
-                <h2>Our Studio</h2>
+                <h2>Made By</h2>
                 <p class="wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">
-                    120-240 aliquam augue libero,<br>
-                    Convallis in vulputate 10220 <br>
-                    San Francisco, CA, USA
+                   Pranav Elric,<br>
+                    Jaipur, India
                 </p>
                 <ul class="social-icon">
-                    <li><a href="#" class="fas fa-globe wow  animate__animated animate__bounceIn"
+                    <li><a href="https://pranavelric.me/" target="_blank" class="fas fa-globe wow  animate__animated animate__bounceIn"
                            data-wow-delay="0.9s"></a></li>
-                    <li><a href="#" class="fab fa-instagram wow  animate__animated animate__bounceIn"
+                    <li><a href="https://www.instagram.com/pranav.elric/" target="_blank" class="fab fa-instagram wow  animate__animated animate__bounceIn"
                            data-wow-delay="1.2s"></a></li>
-                    <li><a href="#" class="fab fa-github wow  animate__animated animate__bounceIn"
+                    <li><a href="https://github.com/pranavelric" class="fab fa-github wow  animate__animated animate__bounceIn"
                            data-wow-delay="1.4s"></a></li>
-                    <li><a href="#" class="fab fa-stack-overflow wow  animate__animated animate__bounceIn"
+                    <li><a href="https://stackoverflow.com/users/10224590/pranav-choudhary?tab=profile" class="fab fa-stack-overflow wow  animate__animated animate__bounceIn"
                            data-wow-delay="1.6s"></a></li>
                 </ul>
             </div>
